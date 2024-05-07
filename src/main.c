@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:03:01 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:35:57 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:38:16 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	data_set_to_stack(int len_data, t_stack *stack_a, int *data)
 	while (index < len_data)
 	{
 		if (!push(stack_a, data[len_data - index - 1]))
-			{
-				free_stack(stack_a);
-				free(data);
-				error_print_exit();
-			}
+		{
+			free_stack(stack_a);
+			free(data);
+			error_print_exit();
+		}
 		index++;
 	}
 	return (0);
@@ -63,11 +63,10 @@ static void	data_set_to_array(int len_data, char **av, int *data)
 		index++;
 	}
 }
-
-__attribute__((destructor)) static void destructor()
-{
-    system("leaks -q push_swap");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+//     system("leaks -q push_swap");
+// }
 
 int	main(int ac, char **av)
 {
