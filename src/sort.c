@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:45:33 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:01:01 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 18:54:23 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	get_target_from_a(t_stack *stack_a, int data)
 	return (target);
 }
 
-static void	sort_reverse(t_stack *stack)
+void	sort_reverse(t_stack *stack)
 {
 	int	min;
 	int	min_index;
