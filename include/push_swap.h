@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:09:38 by jay               #+#    #+#             */
-/*   Updated: 2024/05/07 15:58:28 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:19:59 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 # include "../libft/include/libft.h"
 # include "../libft/include/get_next_line.h"
 # include "../libft/include/ft_printf.h"
-
-# include <stdlib.h>
-# include <stdio.h>
-# include <stdbool.h>
-# include <stdint.h>
 
 # define RA_RB 1
 # define RRA_RRB 2

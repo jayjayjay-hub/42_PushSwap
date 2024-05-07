@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jay <jay@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:14:48 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 12:29:09 by jay              ###   ########.fr       */
+/*   Updated: 2024/05/07 16:20:50 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
+# include "libft.h"
+# include "ft_printf.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
