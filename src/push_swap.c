@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:19:40 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:03:09 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:35:35 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	push_swap(int len, t_stack *stack_a, t_stack *stack_b)
 		{
 			free_stack(stack_a);
 			free_stack(stack_b);
+			error_print_exit();
 		}
 	}
 }
