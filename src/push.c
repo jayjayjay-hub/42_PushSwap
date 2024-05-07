@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:17:42 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:02:47 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 18:46:33 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ bool	push(t_stack *stack, int data)
 bool	push_to(t_stack *from, t_stack *to, char c)
 {
 	int		data;
+	t_node	*temp;
 
 	if (is_empty(from))
 		return (false);
 	data = from->top->data;
+	temp = from->top;
 	if (from->top->next == from->top)
 		from->top = NULL;
 	else
@@ -54,6 +56,7 @@ bool	push_to(t_stack *from, t_stack *to, char c)
 		from->top->next->prev = from->top->prev;
 		from->top = from->top->next;
 	}
+	free(temp);
 	if (push(to, data))
 	{
 		ft_printf("p%c\n", c);
