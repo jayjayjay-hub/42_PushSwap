@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:03:01 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 16:33:49 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:53:37 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int	main(int ac, char **av)
 	data_set_to_array(len_data, ++av, data);
 	stack_init(&stack_a, &stack_b);
 	data_set_to_stack(len_data, &stack_a, data);
-	push_swap(len_data, &stack_a, &stack_b);
+	free(data);
+	if (len_data != 1)
+		push_swap(len_data, &stack_a, &stack_b);
 	return (0);
 }

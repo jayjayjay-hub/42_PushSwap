@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:45:33 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 21:50:33 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:01:01 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,21 @@ static void	sort_reverse(t_stack *stack)
 	}
 }
 
-void	sort(t_stack *stack_a, t_stack *stack_b)
+bool	sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_command	*command;
 
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
+	if (!pb(stack_a, stack_b))
+		return (false);
+	if (!pb(stack_a, stack_b))
+		return (false);
 	while (get_len_stack(stack_a) > 3)
 	{
 		both_stack_index_init(stack_a, stack_b);
 		command = serch_optimal_command_push_to_b(stack_a, stack_b);
 		do_command(*command, stack_a, stack_b);
-		pb(stack_a, stack_b);
+		if (!pb(stack_a, stack_b))
+			return (false);
 	}
 	sort_len_3(stack_a);
 	while (get_len_stack(stack_b) > 0)
@@ -104,7 +107,9 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		both_stack_index_init(stack_a, stack_b);
 		command = serch_optimal_command_push_to_a(stack_a, stack_b);
 		do_command(*command, stack_a, stack_b);
-		pa(stack_a, stack_b);
+		if (!pa(stack_a, stack_b))
+			return (false);
 	}
 	sort_reverse(stack_a);
+	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jay <jay@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:09:38 by jay               #+#    #+#             */
-/*   Updated: 2024/05/07 12:27:50 by jay              ###   ########.fr       */
+/*   Updated: 2024/05/07 15:58:28 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void		push_swap(int len, t_stack *stack_a, t_stack *stack_b);
 void		swap(t_stack *stack, char c);
 void		rotate(t_stack *stack, char c);
 void		reverse_rotate(t_stack *stack, char c);
-void		push(t_stack *stack, int data);
-void		push_to(t_stack *stack_a, t_stack *stack_b, char c);
+bool		push(t_stack *stack, int data);
+bool		push_to(t_stack *stack_a, t_stack *stack_b, char c);
 // command functions
 void		sa(t_stack *stack);
 void		sb(t_stack *stack);
@@ -85,8 +85,8 @@ void		rr(t_stack *stack_a, t_stack *stack_b);
 void		rra(t_stack *stack);
 void		rrb(t_stack *stack);
 void		rrr(t_stack *stack_a, t_stack *stack_b);
-void		pa(t_stack *stack_a, t_stack *stack_b);
-void		pb(t_stack *stack_a, t_stack *stack_b);
+bool		pa(t_stack *stack_a, t_stack *stack_b);
+bool		pb(t_stack *stack_a, t_stack *stack_b);
 // error functions
 void		error_print(void);
 void		error_print_exit(void);
@@ -96,7 +96,7 @@ int			push_swap_atoi(char *str); // atoi with error check
 int			ft_abs(int nbr);
 // sort functions
 void		sort_len_3(t_stack *stack);
-void		sort(t_stack *stack_a, t_stack *stack_b);
+bool		sort(t_stack *stack_a, t_stack *stack_b);
 int			get_target_from_b(t_stack *stack_b, int data);
 int			get_target_from_a(t_stack *stack_a, int data);
 // command utils functions

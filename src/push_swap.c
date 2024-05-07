@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:19:40 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 18:39:36 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:03:09 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,18 @@ void	sort_len_3(t_stack *stack)
 
 void	push_swap(int len, t_stack *stack_a, t_stack *stack_b)
 {
-	if (is_sorted(stack_a) || len == 1)
+	if (is_sorted(stack_a))
 		return ;
 	if (len == 2)
 		sa(stack_a);
 	else if (len == 3)
 		sort_len_3(stack_a);
 	else
-		sort(stack_a, stack_b);
+	{
+		if (!sort(stack_a, stack_b))
+		{
+			free_stack(stack_a);
+			free_stack(stack_b);
+		}
+	}
 }
