@@ -1,4 +1,4 @@
-NAME		= libft.a
+NAME		= libft
 INCLUDE		= include/
 SRC_DIR		= src/
 OBJ_DIR		= .obj/
@@ -40,7 +40,7 @@ ${NAME}: ${OBJS}
 	$(AR) $(ARFLAGS) ${NAME} ${OBJS}
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ 
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)

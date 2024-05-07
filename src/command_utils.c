@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jay <jay@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:23:39 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 21:26:35 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:27:20 by jay              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_command	command_init(void)
 	return (command);
 }
 
-static int	rotate_count_with_ab(a_count, b_count)
+static int	rotate_count_with_ab(int a_count, int b_count)
 {
 	int	with;
 
