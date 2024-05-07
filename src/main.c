@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:03:01 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:38:16 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:10:07 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,13 @@ int	data_set_to_stack(int len_data, t_stack *stack_a, int *data)
 
 static void	data_set_to_array(int len_data, char **av, int *data)
 {
-	int		num_data;
-	int		index;
+	int	num_data;
+	int	index;
 
 	index = 0;
 	while (index < len_data)
 	{
-		num_data = push_swap_atoi(av[index]);
-		if ((num_data == 0 && *av[index] != '0')
+		if (!push_swap_atoi(av[index], &num_data)
 			|| is_duplicate(data, index, num_data))
 		{
 			free(data);

@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:09:38 by jay               #+#    #+#             */
-/*   Updated: 2024/05/07 16:19:59 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:03:12 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ bool		pb(t_stack *stack_a, t_stack *stack_b);
 // error functions
 void		error_print(void);
 void		error_print_exit(void);
-void		malloc_error_print(void);
 // utility functions
-int			push_swap_atoi(char *str); // atoi with error check
+bool		push_swap_atoi(char *str, int *num); // atoi with error check
 int			ft_abs(int nbr);
 // sort functions
 void		sort_len_3(t_stack *stack);
 bool		sort(t_stack *stack_a, t_stack *stack_b);
+void		sort_reverse(t_stack *stack);
 int			get_target_from_b(t_stack *stack_b, int data);
 int			get_target_from_a(t_stack *stack_a, int data);
 // command utils functions
