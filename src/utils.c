@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:33:28 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 18:25:21 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:07:24 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static bool	is_int(long long num, int sign)
 	return (true);
 }
 
-int	push_swap_atoi(char *str)
+bool	push_swap_atoi(char *str, int *data)
 {
 	int			sign;
 	long long	ans;
@@ -49,17 +49,18 @@ int	push_swap_atoi(char *str)
 	str = pass_space(str);
 	str = check_plus_minus(str, &sign);
 	if (*str == '\0' || str == NULL)
-		return (0);
+		return (false);
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			return (0);
+			return (false);
 		ans = (*str - '0') + (ans * 10);
 		if (!is_int(ans, sign))
-			return (0);
+			return (false);
 		str++;
 	}
-	return (ans * sign);
+	*data = ans * sign;
+	return (true);
 }
 
 int	ft_abs(int nbr)
