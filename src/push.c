@@ -6,20 +6,20 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:17:42 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/06 21:25:37 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:02:47 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack, int data)
+bool	push(t_stack *stack, int data)
 {
 	t_node		*new_node;
 	t_command	command;
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (new_node == NULL)
-		malloc_error_print();
+		return (false);
 	command = command_init();
 	new_node->data = data;
 	new_node->command = command;
@@ -36,14 +36,15 @@ void	push(t_stack *stack, int data)
 		stack->top->prev = new_node;
 	}
 	stack->top = new_node;
+	return (true);
 }
 
-void	push_to(t_stack *from, t_stack *to, char c)
+bool	push_to(t_stack *from, t_stack *to, char c)
 {
 	int		data;
 
 	if (is_empty(from))
-		return ;
+		return (false);
 	data = from->top->data;
 	if (from->top->next == from->top)
 		from->top = NULL;
@@ -53,16 +54,20 @@ void	push_to(t_stack *from, t_stack *to, char c)
 		from->top->next->prev = from->top->prev;
 		from->top = from->top->next;
 	}
-	push(to, data);
-	ft_printf("p%c\n", c);
+	if (push(to, data))
+	{
+		ft_printf("p%c\n", c);
+		return (true);
+	}
+	return (false);
 }
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+bool	pa(t_stack *stack_a, t_stack *stack_b)
 {
-	push_to(stack_b, stack_a, 'a');
+	return (push_to(stack_b, stack_a, 'a'));
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+bool	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	push_to(stack_a, stack_b, 'b');
+	return (push_to(stack_a, stack_b, 'b'));
 }
