@@ -77,7 +77,8 @@ re: fclean all
 
 norm:
 	@echo "↓↓↓ push_swap error count ↓↓↓"
-	@norminette $(SRC_FILES) $(INCLUDE) | grep Error | wc -l
-	@norminette $(SRC_FILES) $(INCLUDE) | grep Error || ture
+	@norminette $(SRC_FILES) $(INCLUDE_DIR) | grep Error | wc -l
+	@norminette $(SRC_FILES) $(INCLUDE_DIR) | grep Error || true
+	@$(MAKE) -C $(LIBFT_DIR) norm
 
 .PHONY: all clean fclean re norm
