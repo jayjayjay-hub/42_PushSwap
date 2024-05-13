@@ -60,45 +60,45 @@ CUT 		= "\033[K"
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@echo $(B) "Into libft directory" $(X)
-	$(MAKE) -C $(LIBFT_DIR)
-	@echo $(B) "Out of libft directory" $(X)
-	@echo $(B) "creating $(NAME)" $(X)
+	@echo "\n"
+	@echo $(B) "--> Into libft directory" $(X)
+	@$(MAKE) -C $(LIBFT_DIR)
+	@echo $(B) "*** $(NAME) creating ***" $(X)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)$(LIBFT_NAME) -o $(NAME)
 	@echo "\n"
-	@echo $(G) "$(NAME) created" $(X)
+	@echo $(G) "!!!!!!! $(NAME) created success !!!!!!!" $(X)
 
 $(OBJ_DIR):
-	@echo $(G) "creating obj directory..." $(X)
 	@mkdir $(OBJ_DIR)
 	@mkdir $(OBJ_DIR)$(COMMAND_UTILS_DIR)
 	@mkdir $(OBJ_DIR)$(STACK_UTILS_DIR)
 	@mkdir $(OBJ_DIR)$(MAIN_DIR)
 	@mkdir $(OBJ_DIR)$(OPERATIONS_DIR)
 	@mkdir $(OBJ_DIR)$(UTILS_DIR)
-	@echo $(G) "obj directory created" $(X)
-	@echo "\n"
-
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_INCLUDE) -c $< -o $@
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	@echo $(R) "cleaning" $(X)
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@echo $(R) "<< push_swap cleaning>>" $(X)
 	$(RM) $(OBJ_DIR)
+	@echo "\n"
 
 fclean:
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@echo $(R) "<< push_swap fcleaning >>" $(X)
 	$(RM) $(OBJ_DIR)
 	$(RM) $(NAME)
+	@echo "\n"
 
 re: fclean all
 
 norm:
-	@echo "↓↓↓ push_swap error count ↓↓↓"
+	@echo $(R) "<<< push_swap error count >>>" $(X)
 	@norminette $(SRC_FILES) $(INCLUDE_DIR) | grep Error | wc -l
 	@norminette $(SRC_FILES) $(INCLUDE_DIR) | grep Error || true
+	@echo "\n"
 	@$(MAKE) -C $(LIBFT_DIR) norm
 
 .PHONY: all clean fclean re norm
