@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:09:38 by jay               #+#    #+#             */
-/*   Updated: 2024/05/07 19:03:12 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:06:38 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void		error_print(void);
 void		error_print_exit(void);
 // utility functions
 bool		push_swap_atoi(char *str, int *num); // atoi with error check
-int			ft_abs(int nbr);
 // sort functions
 void		sort_len_3(t_stack *stack);
 bool		sort(t_stack *stack_a, t_stack *stack_b);

@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:33:28 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 19:07:24 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:06:15 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*pass_space(char *str)
 {
-	while (*str == 32 || (*str >= 9 && *str <= 13))
+	while (ft_isspace(*str))
 		str++;
 	return (str);
 }
@@ -61,11 +61,4 @@ bool	push_swap_atoi(char *str, int *data)
 	}
 	*data = ans * sign;
 	return (true);
-}
-
-int	ft_abs(int nbr)
-{
-	if (nbr < 0)
-		return (nbr * -1);
-	return (nbr);
 }
