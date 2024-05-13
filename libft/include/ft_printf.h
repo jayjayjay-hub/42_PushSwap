@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 12:54:48 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/07 16:21:23 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:16:01 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
-# include "get_next_line.h"
-
 # include <stdarg.h>
 
-# define LEN_NULL_STR 6
+# ifndef LEN_NULL_STR
+#  define LEN_NULL_STR 6
+# endif
 
 int		ft_printf(const char *str, ...);
 int		print_str(char *str);
