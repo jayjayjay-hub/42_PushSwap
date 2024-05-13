@@ -34,21 +34,38 @@ OBJ_FILES = $(SRC_FILES:%.c=%.o)
 SRCS += $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJS += $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
+Y 			= "\033[33m"
+R 			= "\033[31m"
+G 			= "\033[32m"
+B 			= "\033[34m"
+X 			= "\033[0m"
+UP 			= "\033[A"
+CUT 		= "\033[K"
 
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
+	@echo $(B) "Into libft directory" $(X)
 	$(MAKE) -C $(LIBFT_DIR)
+	@echo $(B) "Out of libft directory" $(X)
+	@echo $(B) "creating $(NAME)" $(X)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)$(LIBFT_NAME) -o $(NAME)
+	@echo "\n"
+	@echo $(G) "$(NAME) created" $(X)
 
 $(OBJ_DIR):
+	@echo $(G) "creating obj directory..." $(X)
 	@mkdir $(OBJ_DIR)
+	@echo $(G) "obj directory created" $(X)
+	@echo "\n"
+
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT_INCLUDE) -c $< -o $@
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
+	@echo $(R) "cleaning" $(X)
 	$(RM) $(OBJ_DIR)
 
 fclean:
