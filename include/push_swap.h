@@ -6,16 +6,16 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:09:38 by jay               #+#    #+#             */
-/*   Updated: 2024/05/13 17:06:38 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:51:14 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/include/libft.h"
-# include "../libft/include/get_next_line.h"
-# include "../libft/include/ft_printf.h"
+# include "libft.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 # define RA_RB 1
 # define RRA_RRB 2
