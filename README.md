@@ -122,4 +122,4 @@ To clean all files generated while doing a make, go to the path and run:
 $ make fclean
 ```
 
-![screen capture](./images/push_swap.mp4)
+![screen capture](./images/push_swap.gif)
