@@ -6,7 +6,7 @@
 /*   By: jtakahas <jtakahas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:03:01 by jtakahas          #+#    #+#             */
-/*   Updated: 2024/05/13 18:54:12 by jtakahas         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:18:26 by jtakahas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 	int		len_data;
 
 	if (ac <= 1)
-		error_print_exit();
+		return (0);
 	len_data = ac - 1;
 	data = malloc(sizeof(int) * (len_data));
 	if (data == NULL)
