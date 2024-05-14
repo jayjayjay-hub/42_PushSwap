@@ -48,7 +48,7 @@ For this project, the use of the following standard functions is permitted:
 
 If you need to use any other functions, you must implement them yourself.
 
-Therefore, I used my custom library [Libft](https://github.com/jayjayjay-hub/libft), 
+Therefore, I used my custom library [Libft](https://github.com/jayjayjay-hub/libft),
 
 # 🚀 Algorithm
 
@@ -77,7 +77,7 @@ Use the following algorithm:
    * If the element is greater than the maximum or less than the minimum in Stack B, push it above the maximum in Stack B.
      Rotate Stack B until the maximum is at the top.
    * Otherwise, push it above the element in Stack B that is closest to and smaller than it.
-   
+
    Select the element from Stack A that requires the fewest commands to satisfy these conditions and push it to Stack B.
 
 2. Sort Stack A once it has 3 or fewer elements
@@ -122,4 +122,4 @@ To clean all files generated while doing a make, go to the path and run:
 $ make fclean
 ```
 
-![screen capture](./images/push_swap.gif)
+<img src="./images/push_swap.gif" width="700">
