@@ -17,110 +17,109 @@ on the standard output the smallest program, made of Push swap language instruct
 that sorts the integers received as arguments.
 
 
+The task is to sort a sequence of integers given as command line arguments. The following constraints are specified
 
-## List of functions:
+* Only two stacks, Stack_a and Stack_b, may be used for sorting.
+* Stack operations must be limited to the 11 specified commands.
+* Appropriate error handling must be implemented to deal with unexpected input (memory leaks and segmentation faults are not allowed).
 
-### Functions from `<ctype.h>` library
+Other detailed rules exist...
 
-* ft_isascii
-* ft_isalnum
-* ft_isalpha
-* ft_isdigit
-* ft_isprint
-* ft_isspace
-* ft_tolower
-* ft_toupper
+### The 11 specified commands
 
-### Functions from `<stdlib.h>` library
+| instructions  | Description   |
+|:-------------:|---------------|
+| sa            | Swap the first two elements of Stack_a |
+| sb            | Swap the first two elements of Stack_b |
+| ss            | Swap the first two elements of both Stack_a and Stack_b |
+| pa            | Move the first element of Stack_b to the top of Stack_a |
+| pb            | Move the first element of Stack_a to the top of Stack_b |
+| ra            | Rotate all elements of Stack_a up by one (the first element moves to the bottom) |
+| rb            | Rotate all elements of Stack_b up by one (the first element moves to the bottom) |
+| rr            | Rotate all elements of both Stack_a and Stack_b up by one |
+| rra           | Rotate all elements of Stack_a down by one (the last element moves to the top) |
+| rrb           | Rotate all elements of Stack_b down by one (the last element moves to the top) |
+| rrr           | Rotate all elements of both Stack_a and Stack_b down by one |
 
-* ft_atoi
-* ft_calloc
-* ft_abs
+## Supplementary Information:
 
-### Functions from `<strings.h>` library
+For this project, the use of the following standard functions is permitted:
+`read`, `write`, `malloc`, `free`, `exit`
 
-* ft_bzero
-* ft_memset
-* ft_memchr
-* ft_memcmp
-* ft_memmove
-* ft_memcpy
+If you need to use any other functions, you must implement them yourself.
 
-### Functions from `<string.h>` library
+Therefore, I used my custom library [Libft](https://github.com/jayjayjay-hub/libft), 
 
-* ft_strlen
-* ft_strchr
-* ft_strrchr
-* ft_strnstr
-* ft_strncmp
-* ft_strdup
-* ft_strlcpy
-* ft_strlcat
+# 🚀 Algorithm
 
-### Non-standard functions
+Divide the cases based on the number of given numbers.
 
-* ft_itoa
-* ft_substr
-* ft_strtrim
-* ft_strjoin
-* ft_split
-* ft_strmapi
-* ft_putchar_fd
-* ft_putstr_fd
-* ft_putendl_fd
-* ft_putnbr_fd
+→ For a small number of elements, it's more efficient to describe the rules explicitly (hardcoding).
 
-### Linked list functions (bonus)
+## For 3 or fewer elements
 
-* ft_lstnew
-* ft_lstsize
-* ft_lstlast
-* ft_lstadd_back
-* ft_lstadd_front
-* ft_lstdelone
-* ft_lstclear
-* ft_lstiter
-* ft_lstmap
+1. element: Do nothing
+2. elements: Swap if necessary
+3. elements: Hardcode the sorting logic
 
-## 🚀 Updates
+## For 4 elements
 
-### Additional Projects
+1. Push the smallest number to Stack B
+2. Sort the remaining 3 elements using the 3-element sorting algorithm
+3. Push the smallest number from Stack B back to Stack A
 
-#### [get_next_line](https://github.com/jayjayjay-hub/get_next_line)
+## For 5 or more elements
 
-> _This project, [get_next_line](https://github.com/jayjayjay-hub/get_next_line), has been integrated into this `libft` as an additional feature._
+Use the following algorithm:
 
-- The [get_next_line](https://github.com/jayjayjay-hub/get_next_line) project is designed to read a line from a file descriptor.
+1. Push elements to Stack B until Stack A has 3 or fewer elements
+   Conditions for pushing:
+   * If the element is greater than the maximum or less than the minimum in Stack B, push it above the maximum in Stack B.
+     Rotate Stack B until the maximum is at the top.
+   * Otherwise, push it above the element in Stack B that is closest to and smaller than it.
+   
+   Select the element from Stack A that requires the fewest commands to satisfy these conditions and push it to Stack B.
 
-#### [ft_printf](https://github.com/jayjayjay-hub/ft_printf)
+2. Sort Stack A once it has 3 or fewer elements
 
-> _Another project, [ft_printf](https://github.com/jayjayjay-hub/ft_printf), has been added to this `libft` as well._
+3. Push all elements from Stack B back to Stack A
+   Conditions for pushing (reverse of step 1):
+   * If the element is greater than the maximum or less than the minimum in Stack A, push it above the minimum in Stack A.
+     Otherwise, push it above the element in Stack A that is closest to and larger than it.
+   * Select the element from Stack B that requires the fewest commands to satisfy these conditions and push it to Stack A.
 
-- [ft_printf](https://github.com/jayjayjay-hub/ft_printf) is a lightweight function to the standard printf function.
-
-These additions extend the utility of the `libft` library, providing you with a broader range of functions to leverage in your projects at 42tokyo.
+4. Rotate Stack A until it is in ascending order
 
 
 ## 🛠️ Usage
 
 ### Requirements
 
-The library is written in C language and needs the **`cc` compiler** and some standard **C libraries** to run.
+The library is written in C language and needs the **`cc` compiler**.
 
 ### Instructions
 
-**1. Compiling the library**
+**1. Compiling the code**
 
-To compile the library, go to its path and run:
+To compile the  libft library and this project code, go to its path and run:
 
 ```shell
 $ make
 ```
 
-**2. Cleaning all binary (.o) and executable files (.a)**
+**2. Run**
+After creating the executable file push_swap, you provide the numbers you want to sort as command line arguments.
+
+```shell
+./push_swap 2 4 1 6 4
+```
+
+**+α. Cleaning all binary (.o) and executable files**
 
 To clean all files generated while doing a make, go to the path and run:
 
 ```shell
 $ make fclean
 ```
+
+![screen capture](./images/push_swap.mp4)
