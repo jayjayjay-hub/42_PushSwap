@@ -10,6 +10,24 @@
 	<b><i>Final Score 91/100</i></b><br>
 </p>
 
+performance
+```shell
+Number of commands when the number of elements is 5:
+max   : 11
+median: 8
+min   : 0
+
+Number of commands when the number of elements is 100:
+max   : 738
+median: 656
+min   : 580
+
+Number of commands when the number of elements is 500:
+max   : 6812
+median: 6309
+min   : 5903
+```
+
 ## 💡 About the project
 
 > The Push swap project is a very simple and a highly straightforward algorithm project:
@@ -125,4 +143,5 @@ To clean all files generated while doing a make, go to the path and run:
 ```shell
 $ make fclean
 ```
+
 
