@@ -3,6 +3,10 @@
 </h1>
 
 <p align="center">
+	<img src="./images/push_swap.gif" width="700">
+</p>
+
+<p align="center">
 	<b><i>Final Score 91/100</i></b><br>
 </p>
 
@@ -122,4 +126,3 @@ To clean all files generated while doing a make, go to the path and run:
 $ make fclean
 ```
 
-<img src="./images/push_swap.gif" width="700">
